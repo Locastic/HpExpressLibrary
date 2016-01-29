@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CreateShipmentOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="shipmentOrders" type="tns:ArrayOfShipmentOrder" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfShipmentOrder">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShipmentOrder" nillable="true" type="tns:ShipmentOrder" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShipmentOrder">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClientReferenceNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderedBy" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderContact" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderEMail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderCityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderCityPOCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderStreet" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderHouseNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecipientContact" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecipientPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecipientEMail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecipientCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecipientCityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecipientCityPOCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecipientStreet" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecipientHouseNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MainService" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryCenter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalServiceList" type="tns:ArrayOfAdditionalService" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageList" type="tns:ArrayOfPackage" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CODAmount" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Customs" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShippingDocumentNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Contents" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CashPaymentType" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliverByTime1" nillable="true" type="tns:EnumTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliverByTime2" nillable="true" type="tns:EnumTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CollectByDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CollectByTime1" nillable="true" type="tns:EnumTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CollectByTime2" nillable="true" type="tns:EnumTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="T2LContents" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="T2LValue" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceFieldB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceFieldC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceFieldD" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderNumber" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" nillable="true" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAdditionalService">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AdditionalService" nillable="true" type="tns:AdditionalService" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AdditionalService">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AdditionalServiceId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPackage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Package" nillable="true" type="tns:Package" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Package">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Barcode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BarcodeType" type="tns:EnumBarcodeType" />
+          <s:element minOccurs="1" maxOccurs="1" name="Weight" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="VolumeX" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="VolumeY" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="VolumeZ" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommentPackage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceFieldPackageB" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="EnumBarcodeType">
+        <s:restriction base="s:string">
+          <s:enumeration value="BARCODE_3P" />
+          <s:enumeration value="BARCODE_CUSTOM" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="EnumTime">
+        <s:restriction base="s:string">
+          <s:enumeration value="TIME_0800" />
+          <s:enumeration value="TIME_0830" />
+          <s:enumeration value="TIME_0900" />
+          <s:enumeration value="TIME_0930" />
+          <s:enumeration value="TIME_1000" />
+          <s:enumeration value="TIME_1030" />
+          <s:enumeration value="TIME_1100" />
+          <s:enumeration value="TIME_1130" />
+          <s:enumeration value="TIME_1200" />
+          <s:enumeration value="TIME_1230" />
+          <s:enumeration value="TIME_1300" />
+          <s:enumeration value="TIME_1330" />
+          <s:enumeration value="TIME_1400" />
+          <s:enumeration value="TIME_1430" />
+          <s:enumeration value="TIME_1500" />
+          <s:enumeration value="TIME_1530" />
+          <s:enumeration value="TIME_1600" />
+          <s:enumeration value="TIME_1630" />
+          <s:enumeration value="TIME_1700" />
+          <s:enumeration value="TIME_1730" />
+          <s:enumeration value="TIME_1800" />
+          <s:enumeration value="TIME_1830" />
+          <s:enumeration value="TIME_1900" />
+          <s:enumeration value="TIME_1930" />
+          <s:enumeration value="TIME_2000" />
+          <s:enumeration value="TIME_2030" />
+          <s:enumeration value="TIME_2100" />
+          <s:enumeration value="TIME_2130" />
+          <s:enumeration value="TIME_2200" />
+          <s:enumeration value="TIME_2230" />
+          <s:enumeration value="TIME_2300" />
+          <s:enumeration value="TIME_2330" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CreateShipmentOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateShipmentOrdersResult" type="tns:ArrayOfWSCreateShipmentOrdersResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWSCreateShipmentOrdersResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WSCreateShipmentOrdersResponse" nillable="true" type="tns:WSCreateShipmentOrdersResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WSCreateShipmentOrdersResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClientReferenceNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResponseStatus" type="tns:EnumResponseStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorCode" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="EnumResponseStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="ERROR" />
+          <s:enumeration value="REJECTED" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="AuthentificationHeader" type="tns:AuthentificationHeader" />
+      <s:complexType name="AuthentificationHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetPackageScans">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientBarcodes" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPackageScansResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackageScansResult" type="tns:ArrayOfWSGetPackageScansResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWSGetPackageScansResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WSGetPackageScansResponse" nillable="true" type="tns:WSGetPackageScansResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WSGetPackageScansResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Barcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageScansList" type="tns:ArrayOfPackageScan" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResponseStatus" type="tns:EnumResponseStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorCode" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPackageScan">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PackageScan" nillable="true" type="tns:PackageScan" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PackageScan">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Scan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScanDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScanTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Center" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetShipmentOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientReferenceNumbers" type="tns:ArrayOfClientReferenceNumber" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClientReferenceNumber">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClientReferenceNumber" nillable="true" type="tns:ClientReferenceNumber" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ClientReferenceNumber">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetShipmentOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShipmentOrdersResult" type="tns:ArrayOfWSGetShipmentOrdersResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWSGetShipmentOrdersResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WSGetShipmentOrdersResponse" nillable="true" type="tns:WSGetShipmentOrdersResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WSGetShipmentOrdersResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClientReferenceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipmentOrder" type="tns:ShipmentOrder" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResponseStatus" type="tns:EnumResponseStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorCode" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBillOfLadingScans">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientReferenceNumberList" type="tns:ArrayOfClientReferenceNumber" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBillOfLadingScansResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBillOfLadingScansResult" type="tns:ArrayOfWSGetBillOfLadingScansResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWSGetBillOfLadingScansResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WSGetBillOfLadingScansResponse" nillable="true" type="tns:WSGetBillOfLadingScansResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WSGetBillOfLadingScansResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClientReferenceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Barcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageScansList" type="tns:ArrayOfBillOfLadingScan" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResponseStatus" type="tns:EnumResponseStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorCode" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBillOfLadingScan">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BillOfLadingScan" nillable="true" type="tns:BillOfLadingScan" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BillOfLadingScan">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Scan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScanDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScanTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Center" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDeliveryTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeliveryTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDeliveryTypesResult" type="tns:ArrayOfWSIdentifier" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWSIdentifier">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WSIdentifier" nillable="true" type="tns:WSIdentifier" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WSIdentifier">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPaymentTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPaymentTypesResult" type="tns:ArrayOfWSIdentifier" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMainServices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMainServicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMainServicesResult" type="tns:ArrayOfWSIdentifier" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContentsResult" type="tns:ArrayOfWSIdentifier" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCashPaymentTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCashPaymentTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCashPaymentTypesResult" type="tns:ArrayOfWSIdentifier" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAdditionalServices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAdditionalServicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAdditionalServicesResult" type="tns:ArrayOfWSIdentifier" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateShipmentOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateShipmentOrders" />
+  </wsdl:message>
+  <wsdl:message name="CreateShipmentOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateShipmentOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateShipmentOrdersAuthentificationHeader">
+    <wsdl:part name="AuthentificationHeader" element="tns:AuthentificationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageScansSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackageScans" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageScansSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackageScansResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageScansAuthentificationHeader">
+    <wsdl:part name="AuthentificationHeader" element="tns:AuthentificationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetShipmentOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShipmentOrders" />
+  </wsdl:message>
+  <wsdl:message name="GetShipmentOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShipmentOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShipmentOrdersAuthentificationHeader">
+    <wsdl:part name="AuthentificationHeader" element="tns:AuthentificationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBillOfLadingScansSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBillOfLadingScans" />
+  </wsdl:message>
+  <wsdl:message name="GetBillOfLadingScansSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBillOfLadingScansResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBillOfLadingScansAuthentificationHeader">
+    <wsdl:part name="AuthentificationHeader" element="tns:AuthentificationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDeliveryTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDeliveryTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetDeliveryTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDeliveryTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDeliveryTypesAuthentificationHeader">
+    <wsdl:part name="AuthentificationHeader" element="tns:AuthentificationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPaymentTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPaymentTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentTypesAuthentificationHeader">
+    <wsdl:part name="AuthentificationHeader" element="tns:AuthentificationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetMainServicesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMainServices" />
+  </wsdl:message>
+  <wsdl:message name="GetMainServicesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMainServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMainServicesAuthentificationHeader">
+    <wsdl:part name="AuthentificationHeader" element="tns:AuthentificationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetContentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContents" />
+  </wsdl:message>
+  <wsdl:message name="GetContentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContentsAuthentificationHeader">
+    <wsdl:part name="AuthentificationHeader" element="tns:AuthentificationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCashPaymentTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCashPaymentTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetCashPaymentTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCashPaymentTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCashPaymentTypesAuthentificationHeader">
+    <wsdl:part name="AuthentificationHeader" element="tns:AuthentificationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAdditionalServicesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAdditionalServices" />
+  </wsdl:message>
+  <wsdl:message name="GetAdditionalServicesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAdditionalServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAdditionalServicesAuthentificationHeader">
+    <wsdl:part name="AuthentificationHeader" element="tns:AuthentificationHeader" />
+  </wsdl:message>
+  <wsdl:portType name="DataExchangeSoap">
+    <wsdl:operation name="CreateShipmentOrders">
+      <wsdl:input message="tns:CreateShipmentOrdersSoapIn" />
+      <wsdl:output message="tns:CreateShipmentOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageScans">
+      <wsdl:input message="tns:GetPackageScansSoapIn" />
+      <wsdl:output message="tns:GetPackageScansSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShipmentOrders">
+      <wsdl:input message="tns:GetShipmentOrdersSoapIn" />
+      <wsdl:output message="tns:GetShipmentOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBillOfLadingScans">
+      <wsdl:input message="tns:GetBillOfLadingScansSoapIn" />
+      <wsdl:output message="tns:GetBillOfLadingScansSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryTypes">
+      <wsdl:input message="tns:GetDeliveryTypesSoapIn" />
+      <wsdl:output message="tns:GetDeliveryTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentTypes">
+      <wsdl:input message="tns:GetPaymentTypesSoapIn" />
+      <wsdl:output message="tns:GetPaymentTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMainServices">
+      <wsdl:input message="tns:GetMainServicesSoapIn" />
+      <wsdl:output message="tns:GetMainServicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContents">
+      <wsdl:input message="tns:GetContentsSoapIn" />
+      <wsdl:output message="tns:GetContentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCashPaymentTypes">
+      <wsdl:input message="tns:GetCashPaymentTypesSoapIn" />
+      <wsdl:output message="tns:GetCashPaymentTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdditionalServices">
+      <wsdl:input message="tns:GetAdditionalServicesSoapIn" />
+      <wsdl:output message="tns:GetAdditionalServicesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DataExchangeSoap" type="tns:DataExchangeSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateShipmentOrders">
+      <soap:operation soapAction="http://tempuri.org/CreateShipmentOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateShipmentOrdersAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageScans">
+      <soap:operation soapAction="http://tempuri.org/GetPackageScans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPackageScansAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipmentOrders">
+      <soap:operation soapAction="http://tempuri.org/GetShipmentOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetShipmentOrdersAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBillOfLadingScans">
+      <soap:operation soapAction="http://tempuri.org/GetBillOfLadingScans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetBillOfLadingScansAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryTypes">
+      <soap:operation soapAction="http://tempuri.org/GetDeliveryTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDeliveryTypesAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentTypes">
+      <soap:operation soapAction="http://tempuri.org/GetPaymentTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPaymentTypesAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMainServices">
+      <soap:operation soapAction="http://tempuri.org/GetMainServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMainServicesAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContents">
+      <soap:operation soapAction="http://tempuri.org/GetContents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetContentsAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashPaymentTypes">
+      <soap:operation soapAction="http://tempuri.org/GetCashPaymentTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCashPaymentTypesAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdditionalServices">
+      <soap:operation soapAction="http://tempuri.org/GetAdditionalServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAdditionalServicesAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DataExchangeSoap12" type="tns:DataExchangeSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateShipmentOrders">
+      <soap12:operation soapAction="http://tempuri.org/CreateShipmentOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateShipmentOrdersAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageScans">
+      <soap12:operation soapAction="http://tempuri.org/GetPackageScans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPackageScansAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipmentOrders">
+      <soap12:operation soapAction="http://tempuri.org/GetShipmentOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetShipmentOrdersAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBillOfLadingScans">
+      <soap12:operation soapAction="http://tempuri.org/GetBillOfLadingScans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetBillOfLadingScansAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeliveryTypes">
+      <soap12:operation soapAction="http://tempuri.org/GetDeliveryTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetDeliveryTypesAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentTypes">
+      <soap12:operation soapAction="http://tempuri.org/GetPaymentTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPaymentTypesAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMainServices">
+      <soap12:operation soapAction="http://tempuri.org/GetMainServices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetMainServicesAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContents">
+      <soap12:operation soapAction="http://tempuri.org/GetContents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetContentsAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashPaymentTypes">
+      <soap12:operation soapAction="http://tempuri.org/GetCashPaymentTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCashPaymentTypesAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdditionalServices">
+      <soap12:operation soapAction="http://tempuri.org/GetAdditionalServices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAdditionalServicesAuthentificationHeader" part="AuthentificationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataExchange">
+    <wsdl:port name="DataExchangeSoap" binding="tns:DataExchangeSoap">
+      <soap:address location="https://10.0.226.46:8093/DataExchange.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DataExchangeSoap12" binding="tns:DataExchangeSoap12">
+      <soap12:address location="https://10.0.226.46:8093/DataExchange.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
