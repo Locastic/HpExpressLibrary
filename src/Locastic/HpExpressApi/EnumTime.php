@@ -37,5 +37,7 @@ class EnumTime
     const TIME_2300 = 'TIME_2300';
     const TIME_2330 = 'TIME_2330';
 
-
+    public static function getAllConsts() {
+        return (new \ReflectionClass(get_class()))->getConstants();
+    }ethods for
 }
