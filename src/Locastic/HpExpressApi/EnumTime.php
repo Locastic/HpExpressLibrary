@@ -39,5 +39,5 @@ class EnumTime
 
     public static function getAllConsts() {
         return (new \ReflectionClass(get_class()))->getConstants();
-    }ethods for
+    }
 }
