@@ -326,8 +326,9 @@ class Api
      */
     private function sendRequest($functionName, $args)
     {
+        $wsdl = $this->location . '?wsdl';
         $soapClient = new \SoapClient(
-            $this->location . '?wsdl',
+            $wsdl,
             array(
                 'location' => $this->location,
                 'trace' => 1,
@@ -338,18 +339,16 @@ class Api
         );
 
         $headerBody = array(
-            'authHead' => array(
-                'UserName' => $this->authHeadUsername,
-                'Password' => $this->authHeadPassword,
-            ),
+            'UserName' => $this->authHeadUsername,
+            'Password' => $this->authHeadPassword,
         );
+
 
         $header = new \SoapHeader(
             $this->namespace,
-            'RequestorCredentials',
+            'AuthentificationHeader',
             $headerBody
         );
-
 
         $response = $soapClient->__soapCall($functionName, (array)$args, null, $header);
 
