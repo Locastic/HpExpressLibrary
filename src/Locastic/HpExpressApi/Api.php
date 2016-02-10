@@ -19,12 +19,60 @@ class Api
     private $password;
 
     /**
-     * Api constructor.
+     * @var string $authHeadUsername
      */
-    public function __construct($username, $password)
+    private $authHeadUsername;
+
+    /**
+     * @var string $authHeadPassword
+     */
+    private $authHeadPassword;
+
+    /**
+     * @var string $location
+     */
+    private $location;
+
+    /**
+     * @var string $namespace
+     */
+    private $namespace;
+
+    /**
+     * Api constructor.
+     *
+     * @param $username
+     * @param $password
+     * @param $authHeadUsername
+     * @param $authHeadPassword
+     * @param $location
+     * @param $namespace
+     *
+     */
+    public function __construct($username, $password, $authHeadUsername, $authHeadPassword, $location, $namespace)
     {
         $this->username = $username;
         $this->password = $password;
+        $this->authHeadUsername = $authHeadUsername;
+        $this->authHeadPassword = $authHeadPassword;
+        $this->location = $location;
+        $this->namespace = $namespace;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
     }
 
     /**
@@ -54,6 +102,9 @@ class Api
      */
     public function getAdditionalServices(GetAdditionalServices $getAdditionalServices)
     {
+        $getAdditionalServices->password = $this->password;
+        $getAdditionalServices->username = $this->username;
+
         return $this->sendRequest('GetAdditionalServices', $getAdditionalServices);
     }
 
@@ -174,7 +225,7 @@ class Api
      */
     public function getPackageScans(GetPackageScans $getPackageScans)
     {
-         return $this->sendRequest('GetPackageScans', $getPackageScans);
+        return $this->sendRequest('GetPackageScans', $getPackageScans);
     }
 
     /**
@@ -275,17 +326,32 @@ class Api
      */
     private function sendRequest($functionName, $args)
     {
-        $inputHeaders = array(
-            'authHead.UserName' => $this->username,
-            'authHead.Password' => $this->password,
+        $soapClient = new \SoapClient(
+            $this->location . '?wsdl',
+            array(
+                'location' => $this->location,
+                'trace' => 1,
+                'username' => $this->username,
+                'password' => $this->password,
+                'uri' => $this->location,
+            )
         );
 
-        try {
-            $client = new DataExchange();
-            $response = $client->__soapCall($functionName, (array) $args, null, $inputHeaders);
-        } catch (\Exception $e) {
-            return $e->getMessage();
-        }
+        $headerBody = array(
+            'authHead' => array(
+                'UserName' => $this->authHeadUsername,
+                'Password' => $this->authHeadPassword,
+            ),
+        );
+
+        $header = new \SoapHeader(
+            $this->namespace,
+            'RequestorCredentials',
+            $headerBody
+        );
+
+
+        $response = $soapClient->__soapCall($functionName, (array)$args, null, $header);
 
         return $response;
     }
