@@ -83,8 +83,10 @@ class DataExchange extends \SoapClient
      * @param string $wsdl The wsdl file to use
      * @access public
      */
-    public function __construct(array $options = array(), $wsdl = 'DataExchange.wsdl')
+    public function __construct(array $options = array(), $wsdl = null)
     {
+        $wsdl = __DIR__ . '/DataExchange.wsdl';
+
       foreach (self::$classmap as $key => $value) {
         if (!isset($options['classmap'][$key])) {
           $options['classmap'][$key] = $value;

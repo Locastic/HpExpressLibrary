@@ -1,7 +1,7 @@
 <?php
 namespace Locastic\HpExpressApi;
 
-class Package
+class Package extends SOAPable
 {
 
     /**
@@ -53,20 +53,130 @@ class Package
     public $ReferenceFieldPackageB = null;
 
     /**
-     * @param string $Barcode
-     * @param EnumBarcodeType $BarcodeType
-     * @param float $Weight
-     * @param string $CommentPackage
-     * @param string $ReferenceFieldPackageB
-     * @access public
+     * @return string
      */
-    public function __construct($Barcode, $BarcodeType, $Weight, $CommentPackage, $ReferenceFieldPackageB)
+    public function getBarcode()
     {
-      $this->Barcode = $Barcode;
-      $this->BarcodeType = $BarcodeType;
-      $this->Weight = $Weight;
-      $this->CommentPackage = $CommentPackage;
-      $this->ReferenceFieldPackageB = $ReferenceFieldPackageB;
+        return $this->Barcode;
     }
 
+    /**
+     * @param string $Barcode
+     */
+    public function setBarcode($Barcode)
+    {
+        $this->Barcode = $Barcode;
+    }
+
+    /**
+     * @return EnumBarcodeType
+     */
+    public function getBarcodeType()
+    {
+        return $this->BarcodeType;
+    }
+
+    /**
+     * @param EnumBarcodeType $BarcodeType
+     */
+    public function setBarcodeType($BarcodeType)
+    {
+        $this->BarcodeType = $BarcodeType;
+    }
+
+    /**
+     * @return float
+     */
+    public function getWeight()
+    {
+        return $this->Weight;
+    }
+
+    /**
+     * @param float $Weight
+     */
+    public function setWeight($Weight)
+    {
+        $this->Weight = $Weight;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVolumeX()
+    {
+        return $this->VolumeX;
+    }
+
+    /**
+     * @param int $VolumeX
+     */
+    public function setVolumeX($VolumeX)
+    {
+        $this->VolumeX = $VolumeX;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVolumeY()
+    {
+        return $this->VolumeY;
+    }
+
+    /**
+     * @param int $VolumeY
+     */
+    public function setVolumeY($VolumeY)
+    {
+        $this->VolumeY = $VolumeY;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVolumeZ()
+    {
+        return $this->VolumeZ;
+    }
+
+    /**
+     * @param int $VolumeZ
+     */
+    public function setVolumeZ($VolumeZ)
+    {
+        $this->VolumeZ = $VolumeZ;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCommentPackage()
+    {
+        return $this->CommentPackage;
+    }
+
+    /**
+     * @param string $CommentPackage
+     */
+    public function setCommentPackage($CommentPackage)
+    {
+        $this->CommentPackage = $CommentPackage;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReferenceFieldPackageB()
+    {
+        return $this->ReferenceFieldPackageB;
+    }
+
+    /**
+     * @param string $ReferenceFieldPackageB
+     */
+    public function setReferenceFieldPackageB($ReferenceFieldPackageB)
+    {
+        $this->ReferenceFieldPackageB = $ReferenceFieldPackageB;
+    }
 }

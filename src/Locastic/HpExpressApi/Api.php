@@ -75,24 +75,18 @@ class Api
         return $this->password;
     }
 
-    /**
-     * @param ShipmentOrder $shipmentOrder
-     *
-     * @return mixed|string
-     */
-    public function createShipmentOrders(ShipmentOrder $shipmentOrder)
-    {
-        return $this->sendRequest('CreateShipmentOrders', $shipmentOrder);
-    }
 
     /**
-     * @param CreateShipmentOrdersResponse $createShipmentOrdersResponse
+     * @param CreateShipmentOrders $createShipmentOrders
      *
      * @return mixed|string
      */
-    public function createShipmentOrdersResponse(CreateShipmentOrdersResponse $createShipmentOrdersResponse)
+    public function createShipmentOrders(CreateShipmentOrders $createShipmentOrders)
     {
-        return $this->sendRequest('CreateShipmentOrdersResponse', $createShipmentOrdersResponse);
+        $response = $this->object_to_array(
+            $this->sendRequest('CreateShipmentOrders', $createShipmentOrders->getAsSOAP()));
+
+        return $response;
     }
 
     /**
@@ -102,20 +96,13 @@ class Api
      */
     public function getAdditionalServices(GetAdditionalServices $getAdditionalServices)
     {
-        $getAdditionalServices->password = $this->password;
-        $getAdditionalServices->username = $this->username;
+        $response = $this->object_to_array(
+            $this->sendRequest('GetAdditionalServices', $getAdditionalServices)
+            ->GetAdditionalServicesResult
+            ->WSIdentifier
+        );
 
-        return $this->sendRequest('GetAdditionalServices', $getAdditionalServices);
-    }
-
-    /**
-     * @param GetAdditionalServicesResponse $getAdditionalServicesResponse
-     *
-     * @return mixed|string
-     */
-    public function getAdditionalServicesResponse(GetAdditionalServicesResponse $getAdditionalServicesResponse)
-    {
-        return $this->sendRequest('GetAdditionalServicesResponse', $getAdditionalServicesResponse);
+        return new GetAdditionalServicesResponse($response);
     }
 
     /**
@@ -129,33 +116,19 @@ class Api
     }
 
     /**
-     * @param GetBillOfLadingScansResponse $getBillOfLadingScansResponse
-     *
-     * @return mixed|string
-     */
-    public function getBillOfLadingScansResponse(GetBillOfLadingScansResponse $getBillOfLadingScansResponse)
-    {
-        return $this->sendRequest('GetBillOfLadingScansResponse', $getBillOfLadingScansResponse);
-    }
-
-    /**
      * @param GetCashPaymentTypes $getCashPaymentTypes
      *
      * @return mixed|string
      */
     public function getCashPaymentTypes(GetCashPaymentTypes $getCashPaymentTypes)
     {
-        return $this->sendRequest('GetCashPaymentTypes', $getCashPaymentTypes);
-    }
+        $response = $this->object_to_array(
+            $this->sendRequest('GetCashPaymentTypes', $getCashPaymentTypes)
+                ->GetCashPaymentTypesResult
+                ->WSIdentifier
+        );
 
-    /**
-     * @param GetCashPaymentTypesResponse $getCashPaymentTypesResponse
-     *
-     * @return mixed|string
-     */
-    public function getCashPaymentTypesResponse(GetCashPaymentTypesResponse $getCashPaymentTypesResponse)
-    {
-        return $this->sendRequest('GetCashPaymentTypesResponse', $getCashPaymentTypesResponse);
+        return new GetCashPaymentTypesResponse($response);
     }
 
     /**
@@ -165,17 +138,13 @@ class Api
      */
     public function getContents(GetContents $getContents)
     {
-        return $this->sendRequest('GetContents', $getContents);
-    }
+        $response = $this->object_to_array(
+            $this->sendRequest('GetContents', $getContents)
+            ->GetContentsResult
+            ->WSIdentifier
+        );
 
-    /**
-     * @param GetContentsResponse $getContentsResponse
-     *
-     * @return mixed|string
-     */
-    public function getContentsResponse(GetContentsResponse $getContentsResponse)
-    {
-        return $this->sendRequest('GetContentsResponse', $getContentsResponse);
+        return new GetContentsResponse($response);
     }
 
     /**
@@ -185,18 +154,15 @@ class Api
      */
     public function getDeliveryTypes(GetDeliveryTypes $getDeliveryTypes)
     {
-        return $this->sendRequest('GetDeliveryTypes', $getDeliveryTypes);
+        $response = $this->object_to_array(
+            $this->sendRequest('GetDeliveryTypes', $getDeliveryTypes)
+            ->GetDeliveryTypesResult
+            ->WSIdentifier
+        );
+
+        return new GetDeliveryTypesResponse($response);
     }
 
-    /**
-     * @param GetDeliveryTypesResponse $getDeliveryTypesResponse
-     *
-     * @return mixed|string
-     */
-    public function getDeliveryTypesResponse(GetDeliveryTypesResponse $getDeliveryTypesResponse)
-    {
-        return $this->sendRequest('GetDeliveryTypesResponse', $getDeliveryTypesResponse);
-    }
 
     /**
      * @param GetMainServices $getMainServices
@@ -205,17 +171,13 @@ class Api
      */
     public function getMainServices(GetMainServices $getMainServices)
     {
-        return $this->sendRequest('GetMainServices', $getMainServices);
-    }
+        $response = $this->object_to_array(
+            $this->sendRequest('GetMainServices', $getMainServices)
+                ->GetMainServicesResult
+                ->WSIdentifier
+        );
 
-    /**
-     * @param GetMainServicesResponse $getMainServicesResponse
-     *
-     * @return mixed|string
-     */
-    public function getMainServicesResponse(GetMainServicesResponse $getMainServicesResponse)
-    {
-        return $this->sendRequest('GetMainServicesResponse', $getMainServicesResponse);
+        return new GetMainServicesResponse($response);
     }
 
     /**
@@ -225,17 +187,13 @@ class Api
      */
     public function getPackageScans(GetPackageScans $getPackageScans)
     {
-        return $this->sendRequest('GetPackageScans', $getPackageScans);
-    }
+        $response = $this->object_to_array(
+            $this->sendRequest('GetPackageScans', $getPackageScans)
+            ->GetPackageScansResult
+            ->WSIdentifier
+        );
 
-    /**
-     * @param GetPackageScans $getPackageScans
-     *
-     * @return mixed|string
-     */
-    public function getPackageScansResponse(GetPackageScans $getPackageScans)
-    {
-        return $this->sendRequest('GetPackageScansResponse', $getPackageScans);
+        return new GetPackageScansResponse($response);
     }
 
     /**
@@ -245,17 +203,13 @@ class Api
      */
     public function getPaymentTypes(GetPaymentTypes $getPaymentTypes)
     {
-        return $this->sendRequest('GetPaymentTypes', $getPaymentTypes);
-    }
+        $response = $this->object_to_array(
+            $this->sendRequest('GetPaymentTypes', $getPaymentTypes)
+            ->GetPaymentTypesResult
+            ->WSIdentifier
+        );
 
-    /**
-     * @param GetPaymentTypesResponse $getPaymentTypesResponse
-     *
-     * @return mixed|string
-     */
-    public function getPaymentTypesResponse(GetPaymentTypesResponse $getPaymentTypesResponse)
-    {
-        return $this->sendRequest('GetPaymentTypesResponse', $getPaymentTypesResponse);
+        return new GetPaymentTypesResponse($response);
     }
 
     /**
@@ -266,56 +220,6 @@ class Api
     public function getShipmentOrders(GetShipmentOrders $getShipmentOrders)
     {
         return $this->sendRequest('GetShipmentOrders', $getShipmentOrders);
-    }
-
-    /**
-     * @param GetShipmentOrdersResponse $getShipmentOrdersResponse
-     *
-     * @return mixed|string
-     */
-    public function getShipmentOrdersResponse(GetShipmentOrdersResponse $getShipmentOrdersResponse)
-    {
-        return $this->sendRequest('GetShipmentOrdersResponse', $getShipmentOrdersResponse);
-    }
-
-    /**
-     * @param WSCreateShipmentOrdersResponse $WSCreateShipmentOrdersResponse
-     *
-     * @return mixed|string
-     */
-    public function WSCreateShipmentOrdersResponse(WSCreateShipmentOrdersResponse $WSCreateShipmentOrdersResponse)
-    {
-        return $this->sendRequest('WSCreateShipmentOrdersResponse', $WSCreateShipmentOrdersResponse);
-    }
-
-    /**
-     * @param WSGetBillOfLadingScansResponse $WSGetBillOfLadingScansResponse
-     *
-     * @return mixed|string
-     */
-    public function  WSGetBillOfLadingScansResponse(WSGetBillOfLadingScansResponse $WSGetBillOfLadingScansResponse)
-    {
-        return $this->sendRequest('WSGetBillOfLadingScansResponse', $WSGetBillOfLadingScansResponse);
-    }
-
-    /**
-     * @param WSGetPackageScansResponse $WSGetPackageScansResponse
-     *
-     * @return mixed|string
-     */
-    public function WSGetPackageScansResponse(WSGetPackageScansResponse $WSGetPackageScansResponse)
-    {
-        return $this->sendRequest('WSGetPackageScansResponse', $WSGetPackageScansResponse);
-    }
-
-    /**
-     * @param WSGetShipmentOrdersResponse $WSGetShipmentOrdersResponse
-     *
-     * @return mixed|string
-     */
-    public function WSGetShipmentOrdersResponse(WSGetShipmentOrdersResponse $WSGetShipmentOrdersResponse)
-    {
-        return $this->sendRequest('WSGetShipmentOrdersResponse', $WSGetShipmentOrdersResponse);
     }
 
     /**
@@ -332,8 +236,6 @@ class Api
             array(
                 'location' => $this->location,
                 'trace' => 1,
-                'username' => $this->username,
-                'password' => $this->password,
                 'uri' => $this->location,
             )
         );
@@ -343,16 +245,32 @@ class Api
             'Password' => $this->authHeadPassword,
         );
 
-
         $header = new \SoapHeader(
             $this->namespace,
             'AuthentificationHeader',
             $headerBody
         );
 
-        $response = $soapClient->__soapCall($functionName, (array)$args, null, $header);
+        $options = array(
+            'namespace' => $this->namespace,
+        );
+
+        $response = $soapClient->__soapCall($functionName, array($args), $options, $header);
 
         return $response;
+    }
+
+    public function object_to_array($obj)
+    {
+        if (is_object($obj)) $obj = (array)$obj;
+        if (is_array($obj)) {
+            $new = array();
+            foreach ($obj as $key => $val) {
+                $new[$key] = $this->object_to_array($val);
+            }
+        } else $new = $obj;
+
+        return $new;
     }
 
 }

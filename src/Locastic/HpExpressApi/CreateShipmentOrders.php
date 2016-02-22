@@ -1,7 +1,7 @@
 <?php
 namespace Locastic\HpExpressApi;
 
-class CreateShipmentOrders
+class CreateShipmentOrders extends SOAPable
 {
 
     /**
@@ -34,5 +34,54 @@ class CreateShipmentOrders
       $this->username = $username;
       $this->password = $password;
     }
+
+    /**
+     * @return ShipmentOrder[]
+     */
+    public function getShipmentOrders()
+    {
+        return $this->shipmentOrders;
+    }
+
+    /**
+     * @param ShipmentOrder[] $shipmentOrders
+     */
+    public function setShipmentOrders($shipmentOrders)
+    {
+        $this->shipmentOrders = $shipmentOrders;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string $username
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
 
 }
