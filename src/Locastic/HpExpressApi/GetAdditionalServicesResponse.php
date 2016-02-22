@@ -12,11 +12,12 @@ class GetAdditionalServicesResponse
 
     /**
      * @param WSIdentifier[] $GetAdditionalServicesResult
+     *
      * @access public
      */
     public function __construct($GetAdditionalServicesResult)
     {
-      $this->GetAdditionalServicesResult = $GetAdditionalServicesResult;
+        $this->GetAdditionalServicesResult = $GetAdditionalServicesResult;
     }
 
 }

@@ -26,13 +26,14 @@ class CreateShipmentOrders extends SOAPable
      * @param ShipmentOrder[] $shipmentOrders
      * @param string $username
      * @param string $password
+     *
      * @access public
      */
     public function __construct($shipmentOrders, $username, $password)
     {
-      $this->shipmentOrders = $shipmentOrders;
-      $this->username = $username;
-      $this->password = $password;
+        $this->shipmentOrders = $shipmentOrders;
+        $this->username = $username;
+        $this->password = $password;
     }
 
     /**

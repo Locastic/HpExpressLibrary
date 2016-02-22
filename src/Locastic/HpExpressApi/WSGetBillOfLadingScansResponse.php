@@ -46,15 +46,16 @@ class WSGetBillOfLadingScansResponse
      * @param BillOfLadingScan[] $PackageScansList
      * @param EnumResponseStatus $ResponseStatus
      * @param string $ErrorMessage
+     *
      * @access public
      */
     public function __construct($ClientReferenceNumber, $Barcode, $PackageScansList, $ResponseStatus, $ErrorMessage)
     {
-      $this->ClientReferenceNumber = $ClientReferenceNumber;
-      $this->Barcode = $Barcode;
-      $this->PackageScansList = $PackageScansList;
-      $this->ResponseStatus = $ResponseStatus;
-      $this->ErrorMessage = $ErrorMessage;
+        $this->ClientReferenceNumber = $ClientReferenceNumber;
+        $this->Barcode = $Barcode;
+        $this->PackageScansList = $PackageScansList;
+        $this->ResponseStatus = $ResponseStatus;
+        $this->ErrorMessage = $ErrorMessage;
     }
 
 }

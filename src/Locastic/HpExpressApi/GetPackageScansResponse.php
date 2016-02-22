@@ -12,11 +12,12 @@ class GetPackageScansResponse
 
     /**
      * @param WSGetPackageScansResponse[] $GetPackageScansResult
+     *
      * @access public
      */
     public function __construct($GetPackageScansResult)
     {
-      $this->GetPackageScansResult = $GetPackageScansResult;
+        $this->GetPackageScansResult = $GetPackageScansResult;
     }
 
 }

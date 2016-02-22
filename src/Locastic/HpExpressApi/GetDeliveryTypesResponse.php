@@ -12,11 +12,12 @@ class GetDeliveryTypesResponse
 
     /**
      * @param WSIdentifier[] $GetDeliveryTypesResult
+     *
      * @access public
      */
     public function __construct($GetDeliveryTypesResult)
     {
-      $this->GetDeliveryTypesResult = $GetDeliveryTypesResult;
+        $this->GetDeliveryTypesResult = $GetDeliveryTypesResult;
     }
 
 }

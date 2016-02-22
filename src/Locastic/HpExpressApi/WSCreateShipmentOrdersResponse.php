@@ -32,13 +32,14 @@ class WSCreateShipmentOrdersResponse
      * @param string $ClientReferenceNumber
      * @param EnumResponseStatus $ResponseStatus
      * @param string $ErrorMessage
+     *
      * @access public
      */
     public function __construct($ClientReferenceNumber, $ResponseStatus, $ErrorMessage)
     {
-      $this->ClientReferenceNumber = $ClientReferenceNumber;
-      $this->ResponseStatus = $ResponseStatus;
-      $this->ErrorMessage = $ErrorMessage;
+        $this->ClientReferenceNumber = $ClientReferenceNumber;
+        $this->ResponseStatus = $ResponseStatus;
+        $this->ErrorMessage = $ErrorMessage;
     }
 
 }

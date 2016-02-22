@@ -12,11 +12,12 @@ class GetPaymentTypesResponse
 
     /**
      * @param WSIdentifier[] $GetPaymentTypesResult
+     *
      * @access public
      */
     public function __construct($GetPaymentTypesResult)
     {
-      $this->GetPaymentTypesResult = $GetPaymentTypesResult;
+        $this->GetPaymentTypesResult = $GetPaymentTypesResult;
     }
 
 }

@@ -50,6 +50,7 @@ class AdditionalService extends SOAPable
 
     /**
      * @param int $AdditionalServiceId
+     *
      * @access public
      */
 //    public function __construct($AdditionalServiceId)

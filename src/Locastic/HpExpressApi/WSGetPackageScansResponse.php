@@ -39,14 +39,15 @@ class WSGetPackageScansResponse
      * @param PackageScan[] $PackageScansList
      * @param EnumResponseStatus $ResponseStatus
      * @param string $ErrorMessage
+     *
      * @access public
      */
     public function __construct($Barcode, $PackageScansList, $ResponseStatus, $ErrorMessage)
     {
-      $this->Barcode = $Barcode;
-      $this->PackageScansList = $PackageScansList;
-      $this->ResponseStatus = $ResponseStatus;
-      $this->ErrorMessage = $ErrorMessage;
+        $this->Barcode = $Barcode;
+        $this->PackageScansList = $PackageScansList;
+        $this->ResponseStatus = $ResponseStatus;
+        $this->ErrorMessage = $ErrorMessage;
     }
 
 }

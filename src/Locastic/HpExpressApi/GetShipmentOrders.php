@@ -26,13 +26,14 @@ class GetShipmentOrders
      * @param ClientReferenceNumber[] $clientReferenceNumbers
      * @param string $username
      * @param string $password
+     *
      * @access public
      */
     public function __construct($clientReferenceNumbers, $username, $password)
     {
-      $this->clientReferenceNumbers = $clientReferenceNumbers;
-      $this->username = $username;
-      $this->password = $password;
+        $this->clientReferenceNumbers = $clientReferenceNumbers;
+        $this->username = $username;
+        $this->password = $password;
     }
 
 }

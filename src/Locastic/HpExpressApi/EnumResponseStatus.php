@@ -8,7 +8,8 @@ class EnumResponseStatus
     const ERROR = 'ERROR';
     const REJECTED = 'REJECTED';
 
-    public static function getAllConsts() {
+    public static function getAllConsts()
+    {
         return (new \ReflectionClass(get_class()))->getConstants();
     }
 }

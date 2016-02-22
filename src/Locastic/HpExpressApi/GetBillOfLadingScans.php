@@ -26,13 +26,14 @@ class GetBillOfLadingScans
      * @param ClientReferenceNumber[] $clientReferenceNumberList
      * @param string $username
      * @param string $password
+     *
      * @access public
      */
     public function __construct($clientReferenceNumberList, $username, $password)
     {
-      $this->clientReferenceNumberList = $clientReferenceNumberList;
-      $this->username = $username;
-      $this->password = $password;
+        $this->clientReferenceNumberList = $clientReferenceNumberList;
+        $this->username = $username;
+        $this->password = $password;
     }
 
 }

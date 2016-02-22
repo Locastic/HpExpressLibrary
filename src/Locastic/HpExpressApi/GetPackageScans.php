@@ -26,13 +26,14 @@ class GetPackageScans
      * @param String[] $clientBarcodes
      * @param string $username
      * @param string $password
+     *
      * @access public
      */
     public function __construct($clientBarcodes, $username, $password)
     {
-      $this->clientBarcodes = $clientBarcodes;
-      $this->username = $username;
-      $this->password = $password;
+        $this->clientBarcodes = $clientBarcodes;
+        $this->username = $username;
+        $this->password = $password;
     }
 
 }

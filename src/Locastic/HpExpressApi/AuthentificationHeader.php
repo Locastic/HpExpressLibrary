@@ -19,12 +19,13 @@ class AuthentificationHeader
     /**
      * @param string $UserName
      * @param string $Password
+     *
      * @access public
      */
     public function __construct($UserName, $Password)
     {
-      $this->UserName = $UserName;
-      $this->Password = $Password;
+        $this->UserName = $UserName;
+        $this->Password = $Password;
     }
 
 }

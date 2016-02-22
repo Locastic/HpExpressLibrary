@@ -19,12 +19,13 @@ class WSIdentifier
     /**
      * @param int $Id
      * @param string $Name
+     *
      * @access public
      */
     public function __construct($Id, $Name)
     {
-      $this->Id = $Id;
-      $this->Name = $Name;
+        $this->Id = $Id;
+        $this->Name = $Name;
     }
 
 }

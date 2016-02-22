@@ -12,11 +12,12 @@ class CreateShipmentOrdersResponse
 
     /**
      * @param WSCreateShipmentOrdersResponse[] $CreateShipmentOrdersResult
+     *
      * @access public
      */
     public function __construct($CreateShipmentOrdersResult)
     {
-      $this->CreateShipmentOrdersResult = $CreateShipmentOrdersResult;
+        $this->CreateShipmentOrdersResult = $CreateShipmentOrdersResult;
     }
 
 }

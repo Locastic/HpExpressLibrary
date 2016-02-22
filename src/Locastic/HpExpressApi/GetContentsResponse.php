@@ -12,11 +12,12 @@ class GetContentsResponse
 
     /**
      * @param WSIdentifier[] $GetContentsResult
+     *
      * @access public
      */
     public function __construct($GetContentsResult)
     {
-      $this->GetContentsResult = $GetContentsResult;
+        $this->GetContentsResult = $GetContentsResult;
     }
 
 }

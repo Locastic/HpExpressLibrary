@@ -12,11 +12,12 @@ class ClientReferenceNumber
 
     /**
      * @param string $Number
+     *
      * @access public
      */
     public function __construct($Number)
     {
-      $this->Number = $Number;
+        $this->Number = $Number;
     }
 
 }

@@ -7,7 +7,8 @@ class EnumBarcodeType
     const BARCODE_3P = 'BARCODE_3P';
     const BARCODE_CUSTOM = 'BARCODE_CUSTOM';
 
-    public static function getAllConsts() {
+    public static function getAllConsts()
+    {
         return (new \ReflectionClass(get_class()))->getConstants();
     }
 }

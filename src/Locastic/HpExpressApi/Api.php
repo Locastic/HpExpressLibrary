@@ -98,8 +98,8 @@ class Api
     {
         $response = $this->object_to_array(
             $this->sendRequest('GetAdditionalServices', $getAdditionalServices)
-            ->GetAdditionalServicesResult
-            ->WSIdentifier
+                ->GetAdditionalServicesResult
+                ->WSIdentifier
         );
 
         return new GetAdditionalServicesResponse($response);
@@ -140,8 +140,8 @@ class Api
     {
         $response = $this->object_to_array(
             $this->sendRequest('GetContents', $getContents)
-            ->GetContentsResult
-            ->WSIdentifier
+                ->GetContentsResult
+                ->WSIdentifier
         );
 
         return new GetContentsResponse($response);
@@ -156,8 +156,8 @@ class Api
     {
         $response = $this->object_to_array(
             $this->sendRequest('GetDeliveryTypes', $getDeliveryTypes)
-            ->GetDeliveryTypesResult
-            ->WSIdentifier
+                ->GetDeliveryTypesResult
+                ->WSIdentifier
         );
 
         return new GetDeliveryTypesResponse($response);
@@ -189,8 +189,8 @@ class Api
     {
         $response = $this->object_to_array(
             $this->sendRequest('GetPackageScans', $getPackageScans)
-            ->GetPackageScansResult
-            ->WSIdentifier
+                ->GetPackageScansResult
+                ->WSIdentifier
         );
 
         return new GetPackageScansResponse($response);
@@ -205,8 +205,8 @@ class Api
     {
         $response = $this->object_to_array(
             $this->sendRequest('GetPaymentTypes', $getPaymentTypes)
-            ->GetPaymentTypesResult
-            ->WSIdentifier
+                ->GetPaymentTypesResult
+                ->WSIdentifier
         );
 
         return new GetPaymentTypesResponse($response);

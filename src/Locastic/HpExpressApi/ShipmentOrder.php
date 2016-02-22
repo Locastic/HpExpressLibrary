@@ -293,6 +293,7 @@ class ShipmentOrder extends SOAPable
      * @param string $ReferenceFieldB
      * @param string $ReferenceFieldC
      * @param string $ReferenceFieldD
+     *
      * @access public
      */
 //    public function __construct($ClientReferenceNumber, $OrderedBy, $SenderContact, $SenderPhone, $SenderEMail, $SenderCountry, $SenderCityName, $SenderCityPOCode, $SenderStreet, $SenderHouseNumber, $RecipientContact, $RecipientPhone, $RecipientEMail, $RecipientCountry, $RecipientCityName, $RecipientCityPOCode, $RecipientStreet, $RecipientHouseNumber, $MainService, $PaymentType, $DeliveryType, $DeliveryCenter, $AdditionalServiceList, $PackageList, $ShippingDocumentNumber, $T2LContents, $Comment, $ReferenceFieldB, $ReferenceFieldC, $ReferenceFieldD)

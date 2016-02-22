@@ -12,11 +12,12 @@ class GetBillOfLadingScansResponse
 
     /**
      * @param WSGetBillOfLadingScansResponse[] $GetBillOfLadingScansResult
+     *
      * @access public
      */
     public function __construct($GetBillOfLadingScansResult)
     {
-      $this->GetBillOfLadingScansResult = $GetBillOfLadingScansResult;
+        $this->GetBillOfLadingScansResult = $GetBillOfLadingScansResult;
     }
 
 }
