@@ -75,6 +75,11 @@ class Api
         return $this->password;
     }
 
+    public function getNamespace()
+    {
+        return $this->namespace;
+    }
+
 
     /**
      * @param CreateShipmentOrders $createShipmentOrders
@@ -83,8 +88,12 @@ class Api
      */
     public function createShipmentOrders(CreateShipmentOrders $createShipmentOrders)
     {
-        $response = $this->object_to_array(
-            $this->sendRequest('CreateShipmentOrders', $createShipmentOrders->getAsSOAP()));
+        $response = $this->sendRequest('CreateShipmentOrders', $createShipmentOrders->getAsSOAP());
+
+        $response = $response
+            ->CreateShipmentOrdersResult
+            ->WSCreateShipmentOrdersResponse
+            ;
 
         return $response;
     }
@@ -112,7 +121,13 @@ class Api
      */
     public function getBillOfLadingScans(GetBillOfLadingScans $getBillOfLadingScans)
     {
-        return $this->sendRequest('GetBillOfLadingScans', $getBillOfLadingScans);
+        $response = $this->object_to_array(
+            $this->sendRequest('GetBillOfLadingScans', $getBillOfLadingScans)
+            ->GetBillOfLadingScansResult
+            ->WSGetBillOfLadingScansResponse
+        );
+
+        return $response;
     }
 
     /**
@@ -190,7 +205,7 @@ class Api
         $response = $this->object_to_array(
             $this->sendRequest('GetPackageScans', $getPackageScans)
                 ->GetPackageScansResult
-                ->WSIdentifier
+                ->WSGetPackageScansResponse
         );
 
         return new GetPackageScansResponse($response);
@@ -219,7 +234,13 @@ class Api
      */
     public function getShipmentOrders(GetShipmentOrders $getShipmentOrders)
     {
-        return $this->sendRequest('GetShipmentOrders', $getShipmentOrders);
+        $response = $this->object_to_array(
+            $this->sendRequest('GetShipmentOrders', $getShipmentOrders)
+                ->GetShipmentOrdersResult
+                ->WSGetShipmentOrdersResponse
+        );
+
+        return $response;
     }
 
     /**
