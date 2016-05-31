@@ -88,7 +88,7 @@ class Api
      */
     public function createShipmentOrders(CreateShipmentOrders $createShipmentOrders)
     {
-        $response = $this->sendRequest('CreateShipmentOrders', $createShipmentOrders->getAsSOAP());
+        $response = $this->sendRequest('CreateShipmentOrders', $createShipmentOrders);
 
         $response = $response
             ->CreateShipmentOrdersResult
@@ -252,12 +252,21 @@ class Api
     private function sendRequest($functionName, $args)
     {
         $wsdl = $this->location . '?wsdl';
+        $context = stream_context_create(array(
+            'ssl' => array(
+                // set some SSL/TLS specific options
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        ));
         $soapClient = new \SoapClient(
             $wsdl,
             array(
                 'location' => $this->location,
                 'trace' => 1,
                 'uri' => $this->location,
+                'stream_context' => $context
             )
         );
 
